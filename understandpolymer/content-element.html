@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="content-element">
+  <!-- Phải xoá thẻ này thì textcontent mới work -->
+  <!-- <template></template> -->
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ContentElement extends Polymer.Element {
+      constructor() {
+        super();
+        this.textContent = "I'm a content-element.";
+        console.log(this.tagName);
+      }
+      static get is() { return 'content-element'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'hello element'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ContentElement.is, ContentElement);
+  </script>
+</dom-module>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>fake-element demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../fake-element.html">
+    <link rel="import" href="../content-element.html">
+    <link rel="import" href="../custom-element.html">
+    <link rel="import" href="../two-way-element.html">
+    <link rel="import" href="../dom-repeat-element.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      
+      <!-- Content element demo -->
+      <h3>1. Content text demo</h3>
+      <demo-snippet>
+        <template>
+          <content-element></content-element>
+        </template>
+      </demo-snippet>
+
+      <!-- Shadow dom data binding demo -->
+      <h3>2. Event onclick demo</h3>
+      <demo-snippet>
+        <template>
+          <fake-element></fake-element>
+        </template>
+      </demo-snippet>
+
+      <!-- slot demo -->
+      <h3>3. slot demo</h3>
+      <demo-snippet>
+        <template>
+          <p>1</p>
+          <custom-element>
+            <p>2</p>
+          </custom-element>
+          <p>3</p>
+        </template>	
+      </demo-snippet>
+
+      <!-- Prop bind value demo -->
+      <h3>4. Prop one way binding demo</h3>
+      <b>Syntax: property-name="[[binding]]</b>
+      <demo-snippet>
+        <template>
+          <fake-element prop1='new value has been bind from propety'>
+          </fake-element>
+        </template>
+      </demo-snippet>
+
+      <!-- Prop two way binding demo -->
+      <h3>5. Prop two way binding demo</h3>
+      <b>Syntax: </b>
+      <demo-snippet>
+        <template>
+          <two-way-element></two-way-element>
+        </template>
+      </demo-snippet>
+      
+      <!-- Render a list with dom-repeat -->
+      <h3>5. Render a list with dom-repeat demo</h3>
+      <b>Syntax: </b>
+      <demo-snippet>
+        <template>
+          <dom-repeat-element></dom-repeat-element>
+        </template>
+      </demo-snippet>
+
+      
+
+    </div>
+  </body>
+</html>

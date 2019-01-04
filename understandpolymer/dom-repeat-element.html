@@ -1,0 +1,44 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<dom-module id="dom-repeat-element">
+  <template>
+    <!-- import bootstrap -->
+    <link rel="stylesheet" type="text/css" 
+    href="../../bootstrap/dist/css/bootstrap.css">
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <ul class="list-group">
+      <li class='list-group-item active'>First Element</li>
+      <template is='dom-repeat' items='{{listBook}}'>
+        <li class="list-group-item">{{item.name}} | {{item.price}}</li>
+      </template>
+    </ul>
+  </template>
+
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class DomRepeatElement extends Polymer.Element {
+      constructor() {
+        super();
+        this.listBook = [
+          { name: 'Hunter X Hunter', price: 500 },
+          { name: 'The promise neveland', price: 300 },
+          { name: 'One punch man', price: 600 },
+          { name: 'Inuyasaki', price: 400 },
+        ]
+      }
+      static get is() { return 'dom-repeat-element'; }
+    }
+
+    window.customElements.define(DomRepeatElement.is, DomRepeatElement);
+  </script>
+</dom-module>

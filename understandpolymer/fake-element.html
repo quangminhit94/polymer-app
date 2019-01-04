@@ -1,0 +1,55 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="fake-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>[[prop1]]!</h2>
+    <h1>Result: [[counter]]</h1>
+    <button on-click='increase'>
+      Increase
+    </button>
+  </template>
+
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FakeElement extends Polymer.Element {
+      constructor() {
+        super();
+        this.textContent = 'Text Content';
+        this.counter = 1;
+        console.log(this.tagName);
+      }
+      static get is() { return 'fake-element'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'fake-element'
+          },
+          counter: {
+            type: Number,
+            value: 2
+          }
+        };
+      }
+
+      increase() {
+        this.counter++;
+      }
+      
+    }
+
+    window.customElements.define(FakeElement.is, FakeElement);
+  </script>
+</dom-module>

@@ -1,0 +1,46 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="custom-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        background: red;
+        color: white;
+      }
+    </style>
+    <div id='abc'>
+      <h1>Custom element [[name]]</h1>
+      <slot></slot>
+    </div>
+  </template>
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+     class CustomElement extends Polymer.Element {
+      constructor() {
+        super();
+        // this.counter = 1;
+        // this.textContent = 'text Content'
+      }
+      static get is() { return 'custom-element'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'hello element'
+          }
+        };
+      }
+      
+    }
+
+    window.customElements.define(CustomElement.is, CustomElement);
+  </script>
+</dom-module>

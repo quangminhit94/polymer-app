@@ -1,0 +1,46 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<!-- import the iron-input element -->
+<!-- <link rel="import"  href="https://polygit.org/polymer+^v2.6.0/webcomponentsjs+^v1.3.0/iron-*+polymerelements+^v2.0.0/components/iron-input/iron-input.html"> -->
+<link rel="import" href='../iron-input/iron-input.html'>
+<dom-module id="two-way-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <p>Value of the input: [[name]]</p>
+    <iron-input bind-value="{{name}}">
+      <input type="text" placeholder="Put name here...">
+    </iron-input>
+  </template>
+
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TwoWayElement extends Polymer.Element {
+      constructor() {
+        super();
+        this.name = 'Dute'
+      }
+      static get is() { return 'two-way-element'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'Ana'
+          }
+        }
+      }
+      
+    }
+
+    window.customElements.define(TwoWayElement.is, TwoWayElement);
+  </script>
+</dom-module>
