@@ -9,11 +9,24 @@
       /* shadow DOM styles go here */
       :host {
         display: inline-block;
+        color: #000;
+      }
+      iron-icon {
+        fill: rgba(0,0,0,0);
+        stroke: currentcolor;
+      }
+      :host([tick]) iron-icon {
+        fill: black;
+      }
+      :host([kick]) iron-icon {
+        fill: red;
       }
     </style>
 
     <!-- shadow DOM goes here -->
-    <span>Not much here yet.</span>
+    <span>This is iron-icon</span>
+    <iron-icon icon='[[toggleIcon]]' on-click='tickme'></iron-icon>
+    <iron-icon icon='[[toggleIcon]]' on-click='kickme'></iron-icon>
   </template>
 
   <script>
@@ -21,8 +34,33 @@
       static get is() {
         return 'icon-toggle';
       }
+      static get properties() {
+        return {
+          toggleIcon: {
+            type: String
+          },
+          tick: {
+            type: String,
+            notify: true,
+            // reflectToAttribute: true,
+            value: false
+          },
+          kick: {
+            type: String,
+            notify: true,
+            reflectToAttribute: true,
+            value: false
+          }
+        }
+      }
       constructor() {
         super();
+      }
+      tickme() {
+        this.tick = !this.tick
+      }
+      kickme() {
+        this.kick = !this.kick
       }
     }
     customElements.define(IconToggle.is, IconToggle);
