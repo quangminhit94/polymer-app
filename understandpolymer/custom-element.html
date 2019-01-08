@@ -3,16 +3,29 @@
 <dom-module id="custom-element">
   <template>
     <style>
-      :host {
+      :host #abc {
         display: block;
         background: red;
         color: white;
       }
+      :host #abc slot {
+        display: block;
+        background: black;
+        color: yellowgreen;
+      }
+      slot[name="title"] {
+        color: red;
+      }
     </style>
+    
     <div id='abc'>
       <h1>Custom element [[name]]</h1>
       <slot></slot>
     </div>
+
+    <h2>
+      <slot name='title'></slot>
+    </h2>
   </template>
   <script>
     /**

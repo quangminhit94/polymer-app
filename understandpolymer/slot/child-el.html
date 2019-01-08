@@ -1,0 +1,44 @@
+<link rel="import" href="../../polymer/polymer-element.html">
+<dom-module id="child-el">
+  <template>
+    <style>
+      :host {
+        display: block;
+        background: green;
+        color: black;
+      }
+    </style>
+    <h2>
+      <slot name='child-title'></slot>
+    </h2>
+  </template>
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ChildElement extends Polymer.Element {
+      constructor() {
+        super();
+        // this.counter = 1;
+        // this.textContent = 'text Content'
+      }
+      static get is() { return 'child-el'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'child element'
+          }
+        };
+      }
+
+    }
+
+    window.customElements.define(ChildElement.is, ChildElement);
+  </script>
+</dom-module>

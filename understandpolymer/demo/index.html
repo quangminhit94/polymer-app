@@ -15,7 +15,8 @@
     <link rel="import" href="../custom-element.html">
     <link rel="import" href="../two-way-element.html">
     <link rel="import" href="../dom-repeat-element.html">
-
+    <link rel="import" href="../slot/parent-el.html">
+    
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
       </style>
@@ -44,12 +45,18 @@
       <h3>3. slot demo</h3>
       <demo-snippet>
         <template>
+          <h1>Slot demo</h1>
           <p>1</p>
           <custom-element>
-            <p>2</p>
+            <p slot=''>Slot with no name</p>
+            <p slot='title'>Slot with name</p>
           </custom-element>
-          <p>3</p>
-        </template>	
+          
+          <h1>Parent child slot demo</h1>
+          <parent-el>
+            <span slot='header-text'>Child title</span>
+          </parent-el>
+        </template>
       </demo-snippet>
 
       <!-- Prop bind value demo -->

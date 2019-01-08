@@ -1,0 +1,50 @@
+<link rel="import" href="../../polymer/polymer-element.html">
+
+<dom-module id="parent-el">
+  <link rel="import" href="child-el.html">
+  <template>
+    <style>
+      :host {
+        display: block;
+        background: red;
+        color: white;
+      }
+    </style>
+
+    <child-el>
+      <!-- matches span[slot=header-text] above, targets content for
+       slot[name=title] below -->
+      <slot slot='child-title' name='header-text'>
+      </slot>
+    </child-el>
+  </template>
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ParentElement extends Polymer.Element {
+      constructor() {
+        super();
+        // this.counter = 1;
+        // this.textContent = 'text Content'
+      }
+      static get is() { return 'parent-el'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'hello element'
+          }
+        };
+      }
+
+    }
+
+    window.customElements.define(ParentElement.is, ParentElement);
+  </script>
+</dom-module>
