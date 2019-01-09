@@ -1,0 +1,70 @@
+<link rel="import" href="../../polymer/polymer-element.html">
+
+<dom-module id="obj-el">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <ul class="list-group">
+      
+      <dom-repeat items='{{listTodo}}' as='item'>
+        <template>
+          <li class="list-group-item">
+            <!-- <template is="dom-if" if="{{item.completed}}">
+              <input type='checkbox' checked>
+            </template>
+            <template is="dom-if" if="{{!item.completed}}">
+              <input type='checkbox'>
+            </template> -->
+            <input type='checkbox' checked$='[[item.completed]]'>
+
+            <input type='text' value='{{item.name}}'>
+          </li>
+        </template>
+      </dom-repeat>
+      
+    </ul>
+    <button on-click='addItem'>Add item</button>
+
+
+  </template>
+
+  <script>
+    /**
+     * `fake-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ObjectElement extends Polymer.Element {
+      constructor() {
+        super();
+      }
+      static get is() { return 'obj-el'; }
+      static get properties() {
+        return {
+          listTodo: {
+            type: Array,
+            value: [
+              { name: 'Do code fight', completed: false },
+              { name: 'Learn node js', completed: false },
+              { name: 'Learn algorithm', completed: true },
+              { name: 'Play game ica', completed: false },
+            ]
+          }
+        };
+      }
+
+      addItem() {
+        this.push('listTodo',{ name: 'Learn database', completed:false });
+      }
+
+    }
+
+    window.customElements.define(ObjectElement.is, ObjectElement);
+  </script>
+</dom-module>

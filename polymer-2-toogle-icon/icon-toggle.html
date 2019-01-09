@@ -1,0 +1,76 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<dom-module id="icon-toggle">
+
+  <template>
+
+    <style>
+      /* shadow DOM styles go here */
+      :host {
+        display: inline-block;
+        /* color: #000; */
+
+      }
+      /* iron-icon {
+        fill: rgba(0,0,0,0);
+        stroke: currentcolor;
+      } */
+      iron-icon {
+        fill: var(--icon-toggle-color, black);
+        stroke: var(--icon-toggle-outline-color, currentcolor);
+      }
+      :host([tick]) iron-icon {
+        fill: var(--icon-toggle-pressed-color, currentcolor);
+      }
+      :host([kick]) iron-icon {
+        fill: var(--icon-toggle-test-color, currentcolor);
+        stroke: red;
+      }
+    </style>
+
+    <!-- shadow DOM goes here -->
+    <span>This is iron-icon</span>
+    <iron-icon icon='[[toggleIcon]]' on-click='tickme'></iron-icon>
+    <iron-icon icon='[[toggleIcon]]' on-click='kickme'></iron-icon>
+  </template>
+
+  <script>
+    class IconToggle extends Polymer.Element {
+      static get is() {
+        return 'icon-toggle';
+      }
+      static get properties() {
+        return {
+          toggleIcon: {
+            type: String
+          },
+          tick: {
+            type: String,
+            notify: true,
+            reflectToAttribute: true,
+            value: false
+          },
+          kick: {
+            type: String,
+            notify: true,
+            reflectToAttribute: true,
+            value: false
+          }
+        }
+      }
+      constructor() {
+        super();
+      }
+      tickme() {
+        this.tick = !this.tick
+      }
+      kickme() {
+        this.kick = !this.kick
+      }
+    }
+    customElements.define(IconToggle.is, IconToggle);
+  </script>
+
+</dom-module>
+

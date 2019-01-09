@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <style>
+      /* Define a document-wide default—will not override a :host rule in  */
+      html {
+        --icon-toggle-color: red;
+      }
+    </style>
+    <script>
+      /*
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+      */
+    </script>
+    <link rel="import" href="demo-element.html">
+    <link rel="import" href="life-cycle-element.html">
+
+    <link rel="import" href="../icon-toggle.html">
+  </head>
+  <body>
+    <demo-element></demo-element>
+    <life-cycle-element></life-cycle-element>
+    <icon-toggle toggle-icon='settings'></icon-toggle>
+  </body>
+</html>

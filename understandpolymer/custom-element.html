@@ -8,13 +8,17 @@
         background: red;
         color: white;
       }
-      :host #abc slot {
+
+      /* style throught attr */
+      slot[name="title"] {
+        color: red;
+      }
+
+      /* style use ::slotted */
+      #abc ::slotted(.green) {
         display: block;
         background: black;
         color: yellowgreen;
-      }
-      slot[name="title"] {
-        color: red;
       }
     </style>
     

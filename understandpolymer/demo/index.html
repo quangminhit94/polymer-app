@@ -16,9 +16,11 @@
     <link rel="import" href="../two-way-element.html">
     <link rel="import" href="../dom-repeat-element.html">
     <link rel="import" href="../slot/parent-el.html">
+    <link rel="import" href="../array-object/obj-el.html">
     
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+        
       </style>
     </custom-style>
   </head>
@@ -48,7 +50,7 @@
           <h1>Slot demo</h1>
           <p>1</p>
           <custom-element>
-            <p slot=''>Slot with no name</p>
+            <p slot='' class='green'>Slot with no name</p>
             <p slot='title'>Slot with name</p>
           </custom-element>
           
@@ -87,6 +89,14 @@
         </template>
       </demo-snippet>
 
+      <!-- Dirty checking for objects and arrays -->
+      <h3>6. Dirty checking for objects and arrays</h3>
+      <b>Syntax: </b>
+      <demo-snippet>
+        <template>
+          <obj-el></obj-el>
+        </template>
+      </demo-snippet>
       
 
     </div>

@@ -1,0 +1,48 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+
+<dom-module id="life-cycle-element">
+  <template>
+    <style>
+      :host {
+        font-family: sans-serif;
+        --icon-toggle-color: lightgrey;
+        --icon-toggle-outline-color: green;
+        --icon-toggle-pressed-color: yellow;
+      }
+    </style>
+  <h1>Life cicle demo [[tagName]]</h1>
+    
+  </template>
+
+  <script>
+    class LifeCycleElement extends Polymer.Element {
+      static get is() { return 'life-cycle-element' }
+
+      // before property values are set and local DOM is initialized.
+      constructor() {
+        super();
+        console.log('1 constructor', this.shadowRoot);
+      }
+
+      ready() {
+        super.ready();
+        console.log('2 ready', this.shadowRoot);
+      }
+
+      // after the element is inserted into the document
+      connectedCallback() {
+        super.connectedCallback();
+        console.log('3 attached', this.shadowRoot);
+      }
+
+      // after the element is removed from the document.
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log('4 detached', this.shadowRoot);
+      }
+      
+    }
+    customElements.define(LifeCycleElement.is, LifeCycleElement);
+    </script>
+</dom-module>

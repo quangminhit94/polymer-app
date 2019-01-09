@@ -1,0 +1,19 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!-- element template -->
+<dom-module id="my-el">
+  <template>
+    <h2>
+      <slot name="title"></slot>
+    </h2>
+    <div>
+      <slot></slot>
+    </div>
+  </template>
+</dom-module>
+
+<!-- usage -->
+<my-el>
+  <span slot="title">Mr. Darcy</span>
+  <span>Fun at parties.</span>
+</my-el>

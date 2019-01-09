@@ -10,9 +10,17 @@
       }
     </style>
     <p>Value of the input: [[name]]</p>
+    <!-- <input bind-value={{name}} type="text" placeholder="Put name here..."> -->
     <iron-input bind-value="{{name}}">
       <input type="text" placeholder="Put name here...">
     </iron-input>
+
+    <dom-bind>
+      <template>
+        <paper-input value="{{name}}" type='text'></input>
+        <span>You typed: [[name]]</span>
+      </template>
+    </dom-bind>
   </template>
 
   <script>

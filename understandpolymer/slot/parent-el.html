@@ -6,8 +6,12 @@
     <style>
       :host {
         display: block;
-        background: red;
+        background: red !important;
         color: white;
+      }
+      
+      h3 {
+        color: blue !important;
       }
     </style>
 
@@ -17,6 +21,7 @@
       <slot slot='child-title' name='header-text'>
       </slot>
     </child-el>
+    <h3>Hello world inn parent </h3>
   </template>
   <script>
     /**
